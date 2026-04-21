@@ -1,0 +1,82 @@
+[
+  {
+    "team": "CSK",
+    "full_name": "Chennai Super Kings",
+    "captain": "Ruturaj Gaikwad",
+    "home_ground": "M. A. Chidambaram Stadium",
+    "titles": 5,
+    "fan_rating": 9.4
+  },
+  {
+    "team": "MI",
+    "full_name": "Mumbai Indians",
+    "captain": "Hardik Pandya",
+    "home_ground": "Wankhede Stadium",
+    "titles": 5,
+    "fan_rating": 9.1
+  },
+  {
+    "team": "RCB",
+    "full_name": "Royal Challengers Bengaluru",
+    "captain": "Faf du Plessis",
+    "home_ground": "M. Chinnaswamy Stadium",
+    "titles": 0,
+    "fan_rating": 9.7
+  },
+  {
+    "team": "KKR",
+    "full_name": "Kolkata Knight Riders",
+    "captain": "Shreyas Iyer",
+    "home_ground": "Eden Gardens",
+    "titles": 3,
+    "fan_rating": 8.9
+  },
+  {
+    "team": "SRH",
+    "full_name": "Sunrisers Hyderabad",
+    "captain": "Pat Cummins",
+    "home_ground": "Rajiv Gandhi International Stadium",
+    "titles": 1,
+    "fan_rating": 8.4
+  },
+  {
+    "team": "RR",
+    "full_name": "Rajasthan Royals",
+    "captain": "Sanju Samson",
+    "home_ground": "Sawai Mansingh Stadium",
+    "titles": 1,
+    "fan_rating": 8.6
+  },
+  {
+    "team": "DC",
+    "full_name": "Delhi Capitals",
+    "captain": "Rishabh Pant",
+    "home_ground": "Arun Jaitley Stadium",
+    "titles": 0,
+    "fan_rating": 8.1
+  },
+  {
+    "team": "PBKS",
+    "full_name": "Punjab Kings",
+    "captain": "Shikhar Dhawan",
+    "home_ground": "IS Bindra Stadium",
+    "titles": 0,
+    "fan_rating": 7.9
+  },
+  {
+    "team": "GT",
+    "full_name": "Gujarat Titans",
+    "captain": "Shubman Gill",
+    "home_ground": "Narendra Modi Stadium",
+    "titles": 1,
+    "fan_rating": 8.7
+  },
+  {
+    "team": "LSG",
+    "full_name": "Lucknow Super Giants",
+    "captain": "KL Rahul",
+    "home_ground": "BRSABV Ekana Stadium",
+    "titles": 0,
+    "fan_rating": 8.0
+  }
+]

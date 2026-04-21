@@ -1,0 +1,92 @@
+[
+  {
+    "position": 1,
+    "team": "CSK",
+    "played": 14,
+    "won": 9,
+    "lost": 5,
+    "points": 18,
+    "net_run_rate": 0.82
+  },
+  {
+    "position": 2,
+    "team": "MI",
+    "played": 14,
+    "won": 9,
+    "lost": 5,
+    "points": 18,
+    "net_run_rate": 0.64
+  },
+  {
+    "position": 3,
+    "team": "RCB",
+    "played": 14,
+    "won": 8,
+    "lost": 6,
+    "points": 16,
+    "net_run_rate": 0.41
+  },
+  {
+    "position": 4,
+    "team": "KKR",
+    "played": 14,
+    "won": 8,
+    "lost": 6,
+    "points": 16,
+    "net_run_rate": 0.22
+  },
+  {
+    "position": 5,
+    "team": "SRH",
+    "played": 14,
+    "won": 7,
+    "lost": 7,
+    "points": 14,
+    "net_run_rate": 0.09
+  },
+  {
+    "position": 6,
+    "team": "RR",
+    "played": 14,
+    "won": 7,
+    "lost": 7,
+    "points": 14,
+    "net_run_rate": -0.04
+  },
+  {
+    "position": 7,
+    "team": "DC",
+    "played": 14,
+    "won": 6,
+    "lost": 8,
+    "points": 12,
+    "net_run_rate": -0.18
+  },
+  {
+    "position": 8,
+    "team": "PBKS",
+    "played": 14,
+    "won": 6,
+    "lost": 8,
+    "points": 12,
+    "net_run_rate": -0.31
+  },
+  {
+    "position": 9,
+    "team": "GT",
+    "played": 14,
+    "won": 5,
+    "lost": 9,
+    "points": 10,
+    "net_run_rate": -0.52
+  },
+  {
+    "position": 10,
+    "team": "LSG",
+    "played": 14,
+    "won": 4,
+    "lost": 10,
+    "points": 8,
+    "net_run_rate": -0.77
+  }
+]

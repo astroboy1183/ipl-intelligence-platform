@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "team1": "CSK",
+    "team2": "MI",
+    "venue": "Chennai",
+    "date": "2026-03-28",
+    "status": "upcoming"
+  },
+  {
+    "id": 2,
+    "team1": "RCB",
+    "team2": "KKR",
+    "venue": "Bengaluru",
+    "date": "2026-03-29",
+    "status": "upcoming"
+  },
+  {
+    "id": 3,
+    "team1": "SRH",
+    "team2": "RR",
+    "venue": "Hyderabad",
+    "date": "2026-03-30",
+    "status": "upcoming"
+  },
+  {
+    "id": 4,
+    "team1": "DC",
+    "team2": "GT",
+    "venue": "Delhi",
+    "date": "2026-03-31",
+    "status": "upcoming"
+  },
+  {
+    "id": 5,
+    "team1": "LSG",
+    "team2": "PBKS",
+    "venue": "Lucknow",
+    "date": "2026-04-01",
+    "status": "upcoming"
+  }
+]

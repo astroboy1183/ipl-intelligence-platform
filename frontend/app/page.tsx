@@ -6,6 +6,7 @@ type Team = {
   id: number;
   name: string;
   short_name: string;
+  city: string;
 };
 
 type Match = {
@@ -22,6 +23,7 @@ export default function Home() {
   const [healthStatus, setHealthStatus] = useState("Checking...");
   const [teams, setTeams] = useState<Team[]>([]);
   const [matches, setMatches] = useState<Match[]>([]);
+  const [upcomingMatches, setUpcomingMatches] = useState<Match[]>([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -34,14 +36,22 @@ export default function Home() {
 
     const fetchData = async () => {
       try {
-        const [rootRes, healthRes, teamsRes, matchesRes] = await Promise.all([
-          fetch(`${apiUrl}/`),
-          fetch(`${apiUrl}/health`),
-          fetch(`${apiUrl}/ipl/teams`),
-          fetch(`${apiUrl}/ipl/matches`),
-        ]);
+        const [rootRes, healthRes, teamsRes, matchesRes, upcomingRes] =
+          await Promise.all([
+            fetch(`${apiUrl}/`),
+            fetch(`${apiUrl}/health`),
+            fetch(`${apiUrl}/ipl/teams`),
+            fetch(`${apiUrl}/ipl/matches`),
+            fetch(`${apiUrl}/ipl/matches/upcoming`),
+          ]);
 
-        if (!rootRes.ok || !healthRes.ok || !teamsRes.ok || !matchesRes.ok) {
+        if (
+          !rootRes.ok ||
+          !healthRes.ok ||
+          !teamsRes.ok ||
+          !matchesRes.ok ||
+          !upcomingRes.ok
+        ) {
           throw new Error("One or more API requests failed");
         }
 
@@ -49,11 +59,13 @@ export default function Home() {
         const healthData = await healthRes.json();
         const teamsData = await teamsRes.json();
         const matchesData = await matchesRes.json();
+        const upcomingData = await upcomingRes.json();
 
         setApiMessage(rootData.message);
         setHealthStatus(healthData.status);
         setTeams(teamsData.teams);
         setMatches(matchesData.matches);
+        setUpcomingMatches(upcomingData.matches);
       } catch (err) {
         console.error("Error fetching backend data:", err);
         setError("Backend connection failed");
@@ -73,13 +85,13 @@ export default function Home() {
         fontFamily: "Arial, sans-serif",
       }}
     >
-      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
         <h1 style={{ fontSize: "48px", marginBottom: "12px" }}>
           IPL Intelligence Platform
         </h1>
 
         <p style={{ fontSize: "20px", marginBottom: "32px", color: "#cbd5e1" }}>
-          Phase 1: API foundation + mini dashboard
+          Phase 2: data layer + service layer + richer dashboard
         </p>
 
         {error && (
@@ -98,27 +110,29 @@ export default function Home() {
 
         <div
           style={{
-            display: "grid",
-            gap: "20px",
-            marginBottom: "28px",
+            backgroundColor: "#0f172a",
+            padding: "20px",
+            borderRadius: "16px",
+            border: "1px solid #1e293b",
+            marginBottom: "24px",
           }}
         >
-          <div
-            style={{
-              backgroundColor: "#0f172a",
-              padding: "20px",
-              borderRadius: "16px",
-              border: "1px solid #1e293b",
-            }}
-          >
-            <h2 style={{ marginTop: 0 }}>Backend Status</h2>
-            <p>
-              <strong>API Message:</strong> {apiMessage}
-            </p>
-            <p>
-              <strong>Health:</strong> {healthStatus}
-            </p>
-          </div>
+          <h2 style={{ marginTop: 0 }}>Backend Status</h2>
+          <p>
+            <strong>API Message:</strong> {apiMessage}
+          </p>
+          <p>
+            <strong>Health:</strong> {healthStatus}
+          </p>
+          <p>
+            <strong>Total Teams:</strong> {teams.length}
+          </p>
+          <p>
+            <strong>Total Matches:</strong> {matches.length}
+          </p>
+          <p>
+            <strong>Upcoming Matches:</strong> {upcomingMatches.length}
+          </p>
         </div>
 
         <div
@@ -126,6 +140,7 @@ export default function Home() {
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
             gap: "20px",
+            marginBottom: "24px",
           }}
         >
           <div
@@ -142,8 +157,8 @@ export default function Home() {
             ) : (
               <ul style={{ paddingLeft: "20px" }}>
                 {teams.map((team) => (
-                  <li key={team.id} style={{ marginBottom: "8px" }}>
-                    {team.short_name} - {team.name}
+                  <li key={team.id} style={{ marginBottom: "10px" }}>
+                    <strong>{team.short_name}</strong> - {team.name} ({team.city})
                   </li>
                 ))}
               </ul>
@@ -159,11 +174,11 @@ export default function Home() {
             }}
           >
             <h2 style={{ marginTop: 0 }}>Upcoming Matches</h2>
-            {matches.length === 0 ? (
-              <p>Loading matches...</p>
+            {upcomingMatches.length === 0 ? (
+              <p>Loading upcoming matches...</p>
             ) : (
               <ul style={{ paddingLeft: "20px" }}>
-                {matches.map((match) => (
+                {upcomingMatches.map((match) => (
                   <li key={match.id} style={{ marginBottom: "14px" }}>
                     <strong>
                       {match.team1} vs {match.team2}
@@ -179,6 +194,51 @@ export default function Home() {
               </ul>
             )}
           </div>
+        </div>
+
+        <div
+          style={{
+            backgroundColor: "#0f172a",
+            padding: "20px",
+            borderRadius: "16px",
+            border: "1px solid #1e293b",
+          }}
+        >
+          <h2 style={{ marginTop: 0 }}>All Matches</h2>
+          {matches.length === 0 ? (
+            <p>Loading matches...</p>
+          ) : (
+            <table
+              style={{
+                width: "100%",
+                borderCollapse: "collapse",
+                color: "white",
+              }}
+            >
+              <thead>
+                <tr>
+                  <th style={{ textAlign: "left", padding: "10px" }}>ID</th>
+                  <th style={{ textAlign: "left", padding: "10px" }}>Match</th>
+                  <th style={{ textAlign: "left", padding: "10px" }}>Venue</th>
+                  <th style={{ textAlign: "left", padding: "10px" }}>Date</th>
+                  <th style={{ textAlign: "left", padding: "10px" }}>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {matches.map((match) => (
+                  <tr key={match.id}>
+                    <td style={{ padding: "10px" }}>{match.id}</td>
+                    <td style={{ padding: "10px" }}>
+                      {match.team1} vs {match.team2}
+                    </td>
+                    <td style={{ padding: "10px" }}>{match.venue}</td>
+                    <td style={{ padding: "10px" }}>{match.date}</td>
+                    <td style={{ padding: "10px" }}>{match.status}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
         </div>
       </div>
     </main>

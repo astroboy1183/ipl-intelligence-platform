@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Chennai Super Kings",
+    "short_name": "CSK",
+    "city": "Chennai"
+  },
+  {
+    "id": 2,
+    "name": "Mumbai Indians",
+    "short_name": "MI",
+    "city": "Mumbai"
+  },
+  {
+    "id": 3,
+    "name": "Royal Challengers Bengaluru",
+    "short_name": "RCB",
+    "city": "Bengaluru"
+  },
+  {
+    "id": 4,
+    "name": "Kolkata Knight Riders",
+    "short_name": "KKR",
+    "city": "Kolkata"
+  },
+  {
+    "id": 5,
+    "name": "Sunrisers Hyderabad",
+    "short_name": "SRH",
+    "city": "Hyderabad"
+  },
+  {
+    "id": 6,
+    "name": "Rajasthan Royals",
+    "short_name": "RR",
+    "city": "Jaipur"
+  },
+  {
+    "id": 7,
+    "name": "Delhi Capitals",
+    "short_name": "DC",
+    "city": "Delhi"
+  },
+  {
+    "id": 8,
+    "name": "Punjab Kings",
+    "short_name": "PBKS",
+    "city": "Mohali"
+  },
+  {
+    "id": 9,
+    "name": "Gujarat Titans",
+    "short_name": "GT",
+    "city": "Ahmedabad"
+  },
+  {
+    "id": 10,
+    "name": "Lucknow Super Giants",
+    "short_name": "LSG",
+    "city": "Lucknow"
+  }
+]

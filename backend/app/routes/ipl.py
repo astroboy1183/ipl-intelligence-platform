@@ -7,6 +7,7 @@ from app.services.ipl_service import (
     get_points_table,
     get_stats_summary,
     get_team_by_short_name,
+    get_team_intelligence,
     get_team_matches,
     get_team_stats,
     get_upcoming_matches,
@@ -43,6 +44,13 @@ def get_team_matches_route(short_name: str):
         raise HTTPException(status_code=404, detail="Team not found")
     return {"matches": get_team_matches(short_name)}
 
+
+@router.get("/teams/{short_name}/intelligence")
+def get_team_intelligence_route(short_name: str):
+    intelligence = get_team_intelligence(short_name)
+    if not intelligence:
+        raise HTTPException(status_code=404, detail="Team intelligence not found")
+    return intelligence
 
 @router.get("/matches")
 def get_matches():

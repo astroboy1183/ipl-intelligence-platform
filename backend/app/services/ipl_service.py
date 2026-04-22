@@ -83,3 +83,20 @@ def get_stats_summary() -> dict[str, Any]:
         "top_team_points": top_team["points"] if top_team else None,
         "combined_titles": total_titles,
     }
+
+def get_team_intelligence(short_name: str) -> dict[str, Any] | None:
+    team = get_team_by_short_name(short_name)
+    stats = get_team_stats(short_name)
+    matches = get_team_matches(short_name)
+
+    if not team or not stats:
+        return None
+
+    return {
+        "team": team,
+        "stats": stats,
+        "recent_matches": matches,
+        "insight": f"{stats['full_name']} are one of the key IPL teams to watch. "
+                   f"They play at {stats['home_ground']} and are led by {stats['captain']}. "
+                   f"With {stats['titles']} titles, they bring strong legacy and fan interest.",
+    }
